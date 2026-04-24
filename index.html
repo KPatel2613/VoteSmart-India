@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoteSmart India — Election Education Platform</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <span>Language:</span>
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="hi">हिं</button>
+  <button class="lang-btn" data-lang="gu">ગુ</button>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a class="logo" href="index.html">
+    <div class="logo-icon">🗳</div>
+    VoteSmart <span>India</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it Works</a>
+    <a href="pages/institution.html">For Institutions</a>
+    <a href="#pricing">Pricing</a>
+    <a href="pages/login.html" class="btn-nav-outline">Login</a>
+    <a href="pages/register.html" class="btn-nav">Get Started</a>
+  </div>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features">Features</a>
+  <a href="#how">How it Works</a>
+  <a href="pages/institution.html">For Institutions</a>
+  <a href="#pricing">Pricing</a>
+  <a href="pages/login.html">Login</a>
+  <a href="pages/register.html" class="btn-nav">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="dot"></span> Educational · Non-Political · Neutral</div>
+      <h1>Learn Democracy.<br><span class="p-accent">Vote</span> with <span class="accent">Confidence.</span></h1>
+      <p class="hero-sub">India's first EVM simulation and election education platform. Practice voting, understand your rights, and run mock elections — built for students, colleges, and NGOs.</p>
+      <div class="hero-actions">
+        <a href="pages/evm.html" class="btn-primary">Try EVM Simulator</a>
+        <a href="pages/institution.html" class="btn-outline">For Institutions →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">50K+</span><span class="stat-l">Students Trained</span></div>
+        <div class="stat"><span class="stat-n">200+</span><span class="stat-l">Mock Elections</span></div>
+        <div class="stat"><span class="stat-n">3</span><span class="stat-l">Languages</span></div>
+      </div>
+    </div>
+    <div class="evm-wrap">
+      <div class="evm-machine" id="evmMachine">
+        <div class="evm-header">
+          <span class="evm-brand">EVM / VVPAT</span>
+          <span class="evm-led"></span>
+        </div>
+        <div class="evm-screen" id="evmStatus">READY TO VOTE</div>
+        <div class="evm-body" id="evmBody">
+          <!-- Rows injected by JS -->
+        </div>
+        <div class="evm-footer">
+          <span class="evm-model">MODEL BU-2024</span>
+          <span class="evm-seal">ECI DEMO</span>
+        </div>
+      </div>
+      <div class="vvpat-box" id="vvpat">
+        <div class="vvpat-hdr">VVPAT SLIP</div>
+        <div class="vvpat-slip">
+          <span class="vs-sym" id="vvpatSym">🌸</span>
+          <div class="vs-name" id="vvpatName">Rahul Kumar</div>
+          <div class="vs-party" id="vvpatParty">National Party</div>
+        </div>
+        <div class="vvpat-timer" id="vvpatBar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="t-dot"></span> ELECTORAL PROCESS EDUCATION</span>
+    <span class="ticker-item"><span class="t-dot"></span> EVM SIMULATION TRAINING</span>
+    <span class="ticker-item"><span class="t-dot"></span> VOTER RIGHTS AWARENESS</span>
+    <span class="ticker-item"><span class="t-dot"></span> MOCK ELECTIONS FOR COLLEGES</span>
+    <span class="ticker-item"><span class="t-dot"></span> ELECTION COMMISSION OF INDIA CURRICULUM</span>
+    <span class="ticker-item"><span class="t-dot"></span> VVPAT VERIFICATION DEMO</span>
+    <span class="ticker-item"><span class="t-dot"></span> MULTI-LANGUAGE SUPPORT</span>
+    <span class="ticker-item"><span class="t-dot"></span> ELECTORAL PROCESS EDUCATION</span>
+    <span class="ticker-item"><span class="t-dot"></span> EVM SIMULATION TRAINING</span>
+    <span class="ticker-item"><span class="t-dot"></span> VOTER RIGHTS AWARENESS</span>
+    <span class="ticker-item"><span class="t-dot"></span> MOCK ELECTIONS FOR COLLEGES</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-tag">Platform Features</div>
+  <h2 class="section-title">Everything you need to<br>understand Indian democracy</h2>
+  <p class="section-sub">From EVM simulation to candidate comparison, our platform covers the full electoral journey.</p>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon p">🗳️</div>
+      <h3>EVM Simulator</h3>
+      <p>Authentic EVM + VVPAT experience with button press effects, beep sound, and vote confirmation. Practice before election day.</p>
+      <a href="pages/evm.html" class="feat-link">Try Simulator →</a>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon s">📊</div>
+      <h3>Mock Elections</h3>
+      <p>Run live elections for your institution. Create candidates, invite participants, and get real-time results automatically.</p>
+      <a href="pages/dashboard.html" class="feat-link">View Dashboard →</a>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon g">🎓</div>
+      <h3>Learning Modules</h3>
+      <p>Structured courses on Indian elections, voter rights, and the role of ECI. Earn certificates upon completion.</p>
+      <a href="pages/learning.html" class="feat-link">Start Learning →</a>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon s">🔍</div>
+      <h3>Candidate Comparison</h3>
+      <p>Search candidates by constituency. Compare education, assets, criminal cases, and party affiliation side by side.</p>
+      <a href="pages/compare.html" class="feat-link">Compare Now →</a>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon p">🏆</div>
+      <h3>Gamification</h3>
+      <p>Earn points, unlock badges, and climb the leaderboard. Learning democracy has never been this engaging.</p>
+      <a href="pages/dashboard.html" class="feat-link">See Leaderboard →</a>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon g">🌐</div>
+      <h3>Multi-Language</h3>
+      <p>Full support for English, Hindi, and Gujarati. Reach students across India in their native language.</p>
+      <a href="#" class="feat-link">Change Language →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section" id="how">
+  <div class="section-tag" style="text-align:center">How It Works</div>
+  <h2 class="section-title" style="text-align:center">Four steps to electoral confidence</h2>
+  <div class="hiw-grid">
+    <div class="hiw-step">
+      <div class="step-num">01</div>
+      <h3>Register</h3>
+      <p>Sign up with email or Google. Join as a student or link your institution.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="step-num">02</div>
+      <h3>Learn</h3>
+      <p>Complete modules on Indian elections, EVM, and voter rights with interactive quizzes.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="step-num">03</div>
+      <h3>Practice</h3>
+      <p>Use the EVM simulator and join mock elections run by your institution.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="step-num">04</div>
+      <h3>Certify</h3>
+      <p>Download your completion certificate and showcase your civic knowledge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="text-align:center">
+  <div class="section-tag">Pricing</div>
+  <h2 class="section-title">Simple, transparent plans</h2>
+  <p class="section-sub" style="margin:0 auto 2.5rem">Whether you're an individual learner or an institution, we have a plan for you.</p>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="plan-name">Free</div>
+      <div class="plan-price">₹0 <span>/ forever</span></div>
+      <div class="plan-desc">For individual learners and first-time voters</div>
+      <ul class="plan-features">
+        <li>Basic learning modules</li>
+        <li>EVM simulator access</li>
+        <li>Up to 2 mock elections</li>
+        <li>Leaderboard participation</li>
+      </ul>
+      <a href="pages/register.html" class="btn-plan free">Get Started Free</a>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge">MOST POPULAR</div>
+      <div class="plan-name">Pro Institution</div>
+      <div class="plan-price">₹9,999 <span>/ year</span></div>
+      <div class="plan-desc">For colleges, NGOs, and civic organizations</div>
+      <ul class="plan-features">
+        <li>Unlimited mock elections</li>
+        <li>Advanced analytics dashboard</li>
+        <li>Certificate generation</li>
+        <li>Multi-language support</li>
+        <li>Priority support</li>
+        <li>Downloadable reports</li>
+      </ul>
+      <a href="pages/institution.html" class="btn-plan pro">Start Institution Trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to strengthen democracy?</h2>
+  <p>Join 50,000+ students who are learning to vote with confidence.</p>
+  <a href="pages/register.html" class="btn-primary">Start Free Today →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="tricolor"><div style="background:#FF9933"></div><div style="background:#fff"></div><div style="background:#138808"></div></div>
+  <div class="footer-logo">VoteSmart <span>India</span></div>
+  <p class="footer-sub">An educational simulation platform promoting civic awareness. Not affiliated with the Election Commission of India. For educational use only.</p>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Contact</a>
+    <a href="pages/institution.html">For Institutions</a>
+  </div>
+  <div class="footer-bottom">© 2024 VoteSmart India. Educational use only. Non-political, neutral platform.</div>
+</footer>
+
+<script src="js/global.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>
