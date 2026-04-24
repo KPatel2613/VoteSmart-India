@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidate Comparison — VoteSmart India</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/compare.css" />
+</head>
+<body>
 
+<div class="lang-bar">
+  <span>Language:</span>
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="hi">हिं</button>
+  <button class="lang-btn" data-lang="gu">ગુ</button>
+</div>
+
+<nav class="navbar">
+  <a class="logo" href="../index.html"><div class="logo-icon">🗳</div>VoteSmart <span>India</span></a>
+  <div class="nav-links">
+    <a href="evm.html">EVM Simulator</a>
+    <a href="learning.html">Learn</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+  </div>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="evm.html">EVM Simulator</a>
+  <a href="learning.html">Learn</a>
+  <a href="dashboard.html">Dashboard</a>
+</div>
+
+<div class="compare-page">
+  <div class="compare-header">
+    <div>
+      <div class="section-tag">Candidate Comparison</div>
+      <h1>Know Your Candidates</h1>
+      <p>Search and compare candidates based on their declared affidavit data — education, assets, and criminal records. Make an informed choice.</p>
+    </div>
+  </div>
+
+  <!-- SEARCH & FILTER BAR -->
+  <div class="search-bar card">
+    <div class="sb-row">
+      <div class="form-group" style="flex:2;margin:0">
+        <input type="text" id="searchInput" placeholder="🔍  Search candidate by name or party..." oninput="filterCandidates()" />
+      </div>
+      <div class="form-group" style="flex:1;margin:0">
+        <select id="filterParty" onchange="filterCandidates()">
+          <option value="">All Parties</option>
+          <option>National Party</option>
+          <option>United Front</option>
+          <option>People's Alliance</option>
+          <option>Progress Party</option>
+          <option>Reform Front</option>
+        </select>
+      </div>
+      <div class="form-group" style="flex:1;margin:0">
+        <select id="filterCriminal" onchange="filterCandidates()">
+          <option value="">Criminal Cases: All</option>
+          <option value="0">Clean Record (0 cases)</option>
+          <option value="1">1+ Cases</option>
+          <option value="2">2+ Cases</option>
+        </select>
+      </div>
+      <button class="btn-outline" style="padding:10px 18px;font-size:0.85rem;white-space:nowrap" onclick="clearFilters()">Clear ✕</button>
+    </div>
+    <div class="sb-chips" id="sbChips"></div>
+  </div>
+
+  <!-- SELECTED FOR COMPARE -->
+  <div class="compare-tray" id="compareTray" style="display:none">
+    <div style="font-size:0.82rem;color:var(--muted);margin-right:1rem">Comparing:</div>
+    <div id="trayItems"></div>
+    <button class="btn-primary" style="font-size:0.82rem;padding:9px 20px;margin-left:auto" onclick="showCompareTable()">Compare Now →</button>
+  </div>
+
+  <!-- COMPARE TABLE MODAL -->
+  <div class="compare-modal" id="compareModal">
+    <div class="cm-inner">
+      <div class="cm-header">
+        <h2>Candidate Comparison</h2>
+        <button class="mv-close" onclick="closeCompare()">✕</button>
+      </div>
+      <div class="cm-table-wrap" id="cmTableWrap"></div>
+    </div>
+  </div>
+
+  <!-- CANDIDATES GRID -->
+  <div class="candidates-grid" id="candidatesGrid"></div>
+  <div id="noResults" style="display:none;text-align:center;padding:3rem;color:var(--muted)">No candidates found matching your filters.</div>
+</div>
+
+<footer>
+  <div class="tricolor"><div style="background:#FF9933"></div><div style="background:#fff"></div><div style="background:#138808"></div></div>
+  <div class="footer-logo">VoteSmart <span>India</span></div>
+  <p class="footer-sub">Data shown is for educational simulation only. Not real candidate data.</p>
+  <div class="footer-bottom">© 2024 VoteSmart India</div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script src="../js/compare.js"></script>
+</body>
+</html>
