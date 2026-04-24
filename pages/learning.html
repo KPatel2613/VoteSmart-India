@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Center — VoteSmart India</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body>
+
+<div class="lang-bar">
+  <span>Language:</span>
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="hi">हिं</button>
+  <button class="lang-btn" data-lang="gu">ગુ</button>
+</div>
+
+<nav class="navbar">
+  <a class="logo" href="../index.html"><div class="logo-icon">🗳</div>VoteSmart <span>India</span></a>
+  <div class="nav-links">
+    <a href="evm.html">EVM Simulator</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="compare.html">Compare</a>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+  </div>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="evm.html">EVM Simulator</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="compare.html">Compare</a>
+</div>
+
+<!-- Module viewer overlay -->
+<div class="module-overlay" id="moduleOverlay">
+  <div class="module-viewer">
+    <div class="mv-header">
+      <div>
+        <div class="mv-breadcrumb">Learning Center → <span id="mvBreadcrumb">Module</span></div>
+        <h2 id="mvTitle">Module Title</h2>
+      </div>
+      <button class="mv-close" onclick="closeModule()">✕</button>
+    </div>
+    <div class="mv-tabs">
+      <button class="mv-tab active" data-mvtab="content" onclick="switchMvTab('content')">📖 Content</button>
+      <button class="mv-tab" data-mvtab="quiz" onclick="switchMvTab('quiz')">✏️ Quiz</button>
+      <button class="mv-tab" data-mvtab="cert" onclick="switchMvTab('cert')">📜 Certificate</button>
+    </div>
+    <div class="mv-body">
+      <div class="mv-panel active" id="mvp-content"></div>
+      <div class="mv-panel" id="mvp-quiz"></div>
+      <div class="mv-panel" id="mvp-cert">
+        <div class="cert-preview" id="certPreview"></div>
+        <button class="btn-primary" style="margin-top:1.5rem" onclick="downloadCert()">📥 Download Certificate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="learn-page">
+  <div class="learn-header">
+    <div>
+      <div class="section-tag">Learning Center</div>
+      <h1>Master Indian Democracy</h1>
+      <p>8 structured modules covering everything from voter registration to result calculation. Learn at your own pace, take quizzes, earn certificates.</p>
+    </div>
+    <div class="learn-stats">
+      <div class="ls-item"><span class="ls-n">8</span><span class="ls-l">Modules</span></div>
+      <div class="ls-item"><span class="ls-n">32</span><span class="ls-l">Quizzes</span></div>
+      <div class="ls-item"><span class="ls-n">3</span><span class="ls-l">Languages</span></div>
+    </div>
+  </div>
+
+  <div class="progress-overview card">
+    <div class="po-header">
+      <div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-bottom:2px">Overall Progress</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700"><span id="completedCount">3</span> of 8 modules complete</div>
+      </div>
+      <div style="font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;color:var(--p-light)">37%</div>
+    </div>
+    <div class="progress-bar" style="height:8px;margin-top:1rem"><div class="progress-fill" style="width:37%"></div></div>
+  </div>
+
+  <div class="modules-grid" id="modulesGrid"></div>
+</div>
+
+<footer>
+  <div class="tricolor"><div style="background:#FF9933"></div><div style="background:#fff"></div><div style="background:#138808"></div></div>
+  <div class="footer-logo">VoteSmart <span>India</span></div>
+  <div class="footer-bottom">© 2024 VoteSmart India · Educational use only</div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script src="../js/learning.js"></script>
+</body>
+</html>

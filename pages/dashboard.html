@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — VoteSmart India</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+<div class="lang-bar">
+  <span>Language:</span>
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="hi">हिं</button>
+  <button class="lang-btn" data-lang="gu">ગુ</button>
+</div>
+
+<nav class="navbar">
+  <a class="logo" href="../index.html">
+    <div class="logo-icon">🗳</div>
+    VoteSmart <span>India</span>
+  </a>
+  <div class="nav-links">
+    <a href="evm.html">EVM Simulator</a>
+    <a href="learning.html">Learn</a>
+    <a href="compare.html">Compare</a>
+    <a href="institution.html">Institution</a>
+    <a href="#" onclick="logout()" class="btn-nav-outline">Logout</a>
+  </div>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="evm.html">EVM Simulator</a>
+  <a href="learning.html">Learn</a>
+  <a href="compare.html">Compare</a>
+  <a href="institution.html">Institution</a>
+</div>
+
+<div class="dash-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="user-card">
+      <div class="user-avatar" id="userAvatar">VS</div>
+      <div class="user-info">
+        <div class="user-name" id="userName">Demo User</div>
+        <div class="user-role badge badge-purple">Student</div>
+      </div>
+    </div>
+    <nav class="side-nav">
+      <a href="#" class="snav-item active" data-tab="overview">📊 Overview</a>
+      <a href="#" class="snav-item" data-tab="elections">🗳️ Mock Elections</a>
+      <a href="#" class="snav-item" data-tab="learning">🎓 My Learning</a>
+      <a href="#" class="snav-item" data-tab="badges">🏆 Badges</a>
+      <a href="#" class="snav-item" data-tab="leaderboard">📈 Leaderboard</a>
+    </nav>
+    <div class="sidebar-cta">
+      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem">Join a mock election</div>
+      <div class="join-input-wrap">
+        <input type="text" id="electionCode" placeholder="Enter code" style="font-size:0.82rem;padding:8px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);color:var(--text);width:100%;outline:none;margin-bottom:0.5rem" />
+        <button class="btn-primary" style="width:100%;padding:9px;font-size:0.82rem" onclick="joinElection()">JOIN →</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+    <!-- OVERVIEW TAB -->
+    <div class="tab-panel active" id="tab-overview">
+      <div class="dash-header">
+        <div>
+          <h2>Welcome back, <span id="greetName">Student</span> 👋</h2>
+          <p style="color:var(--muted);font-size:0.85rem;margin-top:4px">Continue your electoral education journey.</p>
+        </div>
+        <a href="evm.html" class="btn-primary" style="font-size:0.85rem;padding:10px 20px">Try EVM →</a>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="sc-label">Points Earned</div>
+          <div class="sc-val" id="statPoints">1,240</div>
+          <div class="sc-sub">+80 this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Modules Done</div>
+          <div class="sc-val" id="statModules">3 / 8</div>
+          <div class="sc-sub">37% complete</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Elections Joined</div>
+          <div class="sc-val" id="statElections">2</div>
+          <div class="sc-sub">1 active</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Rank</div>
+          <div class="sc-val">#42</div>
+          <div class="sc-sub">Top 10%</div>
+        </div>
+      </div>
+
+      <div class="dash-two-col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Continue Learning</h3>
+            <a href="learning.html" style="font-size:0.78rem;color:#B08AE0">View all →</a>
+          </div>
+          <div class="module-list" id="moduleList">
+            <div class="module-item">
+              <div class="module-icon">🇮🇳</div>
+              <div class="module-info">
+                <div class="module-name">How Indian Elections Work</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+                <div class="module-meta">80% complete · <span class="badge badge-green">In Progress</span></div>
+              </div>
+            </div>
+            <div class="module-item">
+              <div class="module-icon">🗳️</div>
+              <div class="module-info">
+                <div class="module-name">What is EVM</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+                <div class="module-meta">100% complete · <span class="badge badge-purple">Certified</span></div>
+              </div>
+            </div>
+            <div class="module-item">
+              <div class="module-icon">⚖️</div>
+              <div class="module-info">
+                <div class="module-name">Role of Election Commission</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+                <div class="module-meta">30% complete · <span class="badge badge-saffron">Started</span></div>
+              </div>
+            </div>
+            <div class="module-item">
+              <div class="module-icon">🙋</div>
+              <div class="module-info">
+                <div class="module-name">Voter Rights</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                <div class="module-meta">Not started</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <span class="act-icon">🗳️</span>
+              <div><div class="act-title">Voted in Mock Election #2</div><div class="act-time">2 hours ago</div></div>
+            </div>
+            <div class="activity-item">
+              <span class="act-icon">🎓</span>
+              <div><div class="act-title">Completed EVM module quiz</div><div class="act-time">Yesterday</div></div>
+            </div>
+            <div class="activity-item">
+              <span class="act-icon">🏆</span>
+              <div><div class="act-title">Earned "First Vote" badge</div><div class="act-time">2 days ago</div></div>
+            </div>
+            <div class="activity-item">
+              <span class="act-icon">📜</span>
+              <div><div class="act-title">Downloaded EVM Certificate</div><div class="act-time">3 days ago</div></div>
+            </div>
+            <div class="activity-item">
+              <span class="act-icon">🔍</span>
+              <div><div class="act-title">Compared 3 candidates</div><div class="act-time">1 week ago</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ELECTIONS TAB -->
+    <div class="tab-panel" id="tab-elections">
+      <div class="dash-header">
+        <h2>Mock Elections</h2>
+        <button class="btn-primary" style="font-size:0.85rem;padding:10px 20px" onclick="showCreateElection()">+ Create Election</button>
+      </div>
+      <div id="createElectionForm" style="display:none" class="card" style="margin-bottom:1.5rem">
+        <h3 style="margin-bottom:1rem">Create New Election</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Election Title</label><input type="text" placeholder="e.g. College Student President 2024" /></div>
+          <div class="form-group"><label>Start Date</label><input type="date" /></div>
+          <div class="form-group"><label>End Date</label><input type="date" /></div>
+        </div>
+        <button class="btn-primary" style="font-size:0.85rem;padding:10px 24px">Create Election →</button>
+      </div>
+      <div class="elections-list">
+        <div class="election-card active-election">
+          <div class="el-header">
+            <div>
+              <div class="el-title">College Political Science Mock Election</div>
+              <div class="el-meta">Created by: SVNIT Surat · 128 participants</div>
+            </div>
+            <span class="badge badge-green">LIVE</span>
+          </div>
+          <div class="el-candidates">4 candidates · Ends in 2 days</div>
+          <a href="evm.html" class="btn-primary" style="font-size:0.82rem;padding:9px 20px;display:inline-block;margin-top:1rem">Vote Now →</a>
+        </div>
+        <div class="election-card">
+          <div class="el-header">
+            <div>
+              <div class="el-title">Youth Parliament Simulation 2024</div>
+              <div class="el-meta">Created by: NSS Chapter · 56 participants</div>
+            </div>
+            <span class="badge badge-saffron">UPCOMING</span>
+          </div>
+          <div class="el-candidates">6 candidates · Starts in 3 days</div>
+        </div>
+        <div class="election-card">
+          <div class="el-header">
+            <div>
+              <div class="el-title">Orientation Week Mock Vote</div>
+              <div class="el-meta">Created by: Admin · 310 participants</div>
+            </div>
+            <span class="badge" style="background:rgba(136,136,170,0.15);color:var(--muted)">ENDED</span>
+          </div>
+          <div class="el-candidates">3 candidates · Results available</div>
+          <button class="btn-outline" style="font-size:0.82rem;padding:9px 20px;margin-top:1rem">View Results →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEARNING TAB -->
+    <div class="tab-panel" id="tab-learning">
+      <div class="dash-header"><h2>My Learning</h2></div>
+      <a href="learning.html" class="btn-primary" style="font-size:0.85rem;padding:10px 20px;display:inline-block;margin-bottom:1.5rem">Open Learning Center →</a>
+      <div class="card">
+        <h3 style="margin-bottom:1rem">Progress Overview</h3>
+        <div class="module-list" id="fullModuleList"></div>
+      </div>
+    </div>
+
+    <!-- BADGES TAB -->
+    <div class="tab-panel" id="tab-badges">
+      <div class="dash-header"><h2>My Badges</h2></div>
+      <div class="badges-grid">
+        <div class="badge-card earned"><div class="badge-icon">🗳️</div><div class="badge-name">First Vote</div><div class="badge-desc">Cast your first vote in the EVM simulator</div></div>
+        <div class="badge-card earned"><div class="badge-icon">📜</div><div class="badge-name">Certified</div><div class="badge-desc">Complete one learning module</div></div>
+        <div class="badge-card earned"><div class="badge-icon">🔍</div><div class="badge-name">Researcher</div><div class="badge-desc">Compare 3 or more candidates</div></div>
+        <div class="badge-card locked"><div class="badge-icon">🏛️</div><div class="badge-name">Democracy Scholar</div><div class="badge-desc">Complete all 8 modules</div><div class="lock-icon">🔒</div></div>
+        <div class="badge-card locked"><div class="badge-icon">⚡</div><div class="badge-name">Streak Master</div><div class="badge-desc">Learn 7 days in a row</div><div class="lock-icon">🔒</div></div>
+        <div class="badge-card locked"><div class="badge-icon">🏆</div><div class="badge-name">Top Voter</div><div class="badge-desc">Reach top 10 on leaderboard</div><div class="lock-icon">🔒</div></div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD TAB -->
+    <div class="tab-panel" id="tab-leaderboard">
+      <div class="dash-header"><h2>Leaderboard</h2></div>
+      <div class="card">
+        <div class="lb-header">
+          <span>#</span><span>Student</span><span>Institution</span><span>Points</span><span>Badges</span>
+        </div>
+        <div id="lbList"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/global.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

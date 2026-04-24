@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVM Simulator — VoteSmart India</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/evm.css" />
+</head>
+<body>
+
+<div class="lang-bar">
+  <span>Language:</span>
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="hi">हिं</button>
+  <button class="lang-btn" data-lang="gu">ગુ</button>
+</div>
+
+<nav class="navbar">
+  <a class="logo" href="../index.html">
+    <div class="logo-icon">🗳</div>
+    VoteSmart <span>India</span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="learning.html">Learn</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="compare.html">Compare</a>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+  </div>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="learning.html">Learn</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="compare.html">Compare</a>
+  <a href="login.html">Login</a>
+</div>
+
+<div class="evm-page">
+  <div class="evm-page-left">
+    <div class="evm-info-card">
+      <div class="section-tag">EVM SIMULATOR</div>
+      <h1>Electronic Voting Machine</h1>
+      <p>This is an authentic simulation of India's EVM used in Lok Sabha and Vidhan Sabha elections. Cast your vote, see the VVPAT slip, and understand how the process works.</p>
+      <div class="evm-instructions">
+        <div class="instr-step"><span class="instr-num">1</span><span>Select your candidate by pressing the <strong>blue button</strong> next to their name.</span></div>
+        <div class="instr-step"><span class="instr-num">2</span><span>A <strong>beep</strong> will confirm your vote has been recorded.</span></div>
+        <div class="instr-step"><span class="instr-num">3</span><span>The <strong>VVPAT slip</strong> will display for 5 seconds so you can verify your vote.</span></div>
+        <div class="instr-step"><span class="instr-num">4</span><span>The red indicator light confirms the vote is final.</span></div>
+      </div>
+    </div>
+    <div class="evm-state-panel" id="statePanel">
+      <div class="state-label">Voter Status</div>
+      <div class="state-value" id="stateValue">WAITING</div>
+      <div class="state-desc" id="stateDesc">Press a blue button to cast your vote</div>
+      <div class="vote-result" id="voteResult" style="display:none">
+        <div class="vr-label">You voted for</div>
+        <div class="vr-sym" id="vrSym">🌸</div>
+        <div class="vr-name" id="vrName">—</div>
+        <div class="vr-party" id="vrParty">—</div>
+        <button class="btn-primary" style="width:100%;margin-top:1rem;font-size:0.85rem;padding:10px" onclick="resetEVM()">Vote Again (Demo)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="evm-page-center">
+    <div class="evm-machine" id="evmMachine">
+      <div class="evm-header">
+        <span class="evm-brand">BALLOT UNIT — BU-2024</span>
+        <span class="evm-led" id="evmLed"></span>
+      </div>
+      <div class="evm-screen" id="evmStatus">READY TO VOTE</div>
+      <div class="evm-meta">
+        <span>Constituency: <strong>DEMO-01</strong></span>
+        <span>Polling Booth: <strong>PB-007</strong></span>
+      </div>
+      <div class="evm-body" id="evmBody"></div>
+      <div class="evm-nota-row" id="notaRow">
+        <span class="evm-num">NOTA</span>
+        <span class="evm-name">None of The Above<span class="party">NOTA</span></span>
+        <span class="evm-sym">🚫</span>
+        <button class="evm-btn" id="notaBtn" onclick="castVoteFull(-1)"></button>
+        <span class="evm-voted-ind" id="viNota"></span>
+      </div>
+      <div class="evm-footer">
+        <span class="evm-model">ECI CERTIFIED · MODEL BU-2024-X</span>
+        <span class="evm-seal">DEMO</span>
+      </div>
+    </div>
+    <div class="vvpat-box" id="vvpat">
+      <div class="vvpat-hdr">VVPAT — VOTER VERIFIABLE PAPER AUDIT TRAIL</div>
+      <div class="vvpat-slip">
+        <span class="vs-sym" id="vvpatSym">🌸</span>
+        <div class="vs-name" id="vvpatName">Candidate Name</div>
+        <div class="vs-party" id="vvpatParty">Party Name</div>
+        <div style="font-size:0.55rem;color:#888;margin-top:6px">Visible for 5 seconds only</div>
+      </div>
+      <div class="vvpat-timer" id="vvpatBar"></div>
+    </div>
+  </div>
+
+  <div class="evm-page-right">
+    <div class="evm-info-card">
+      <div class="section-tag">DID YOU KNOW?</div>
+      <div class="facts-list" id="factsList">
+        <div class="fact-item active">
+          <div class="fact-icon">🔒</div>
+          <p>EVMs are standalone machines with no internet or Bluetooth connection.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon">🖨️</div>
+          <p>VVPAT was introduced in 2013 to let voters verify their vote visually.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon">⚡</div>
+          <p>EVMs run on 7.5V alkaline batteries and work without electricity.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon">🛡️</div>
+          <p>The EVM memory chip is one-time programmable and cannot be rewritten.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon">🗳️</div>
+          <p>A single EVM can record up to 2,000 votes with 64 candidate capacity.</p>
+        </div>
+      </div>
+      <div class="fact-dots" id="factDots"></div>
+    </div>
+    <a href="learning.html" class="learn-cta">
+      <div class="lc-icon">🎓</div>
+      <div>
+        <strong>Want to learn more?</strong>
+        <p>Take the full EVM module and earn a certificate.</p>
+      </div>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="tricolor"><div style="background:#FF9933"></div><div style="background:#fff"></div><div style="background:#138808"></div></div>
+  <div class="footer-logo">VoteSmart <span>India</span></div>
+  <p class="footer-sub">Educational simulation only. Not affiliated with ECI.</p>
+  <div class="footer-bottom">© 2024 VoteSmart India</div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script src="../js/evm.js"></script>
+</body>
+</html>
